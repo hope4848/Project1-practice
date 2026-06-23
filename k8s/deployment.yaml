@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coin-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: coin-api
+  template:
+    metadata:
+      labels:
+        app: coin-api
+    spec:
+      containers:
+      - name: coin-api
+        image: hope4849/coin-api:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
